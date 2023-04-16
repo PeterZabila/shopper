@@ -36,7 +36,7 @@ const Select = styled.select`
 `;
 const Option = styled.option``;
 
-const ProductList = () => {
+const ProductsList = () => {
   return (
     <Container>
       <Navbar />
@@ -83,4 +83,4 @@ const ProductList = () => {
   );
 };
 
-export default ProductList;
+export default ProductsList;
