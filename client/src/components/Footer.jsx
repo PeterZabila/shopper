@@ -89,7 +89,7 @@ import {
     return (
       <Container>
         <Left>
-          <Logo>LAMA.</Logo>
+          <Logo>PZabila.</Logo>
           <Desc>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore accusamus officiis soluta non necessitatibus quaerat praesentium, doloribus voluptate debitis illum, fugit, deserunt autem possimus temporibus!
           </Desc>
