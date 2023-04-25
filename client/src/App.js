@@ -4,41 +4,25 @@ import ProductsList from './pages/ProductsList';
 import Register from './pages/Register';
 import Login from './pages/Login';
 import Cart from './pages/Cart';
-import styled from 'styled-components';
 
-import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom"
-
-const Container = styled.div`
-  height: 60px;
-`
+import { Routes, Route, Navigate } from "react-router-dom"
+import SharedLayout from './pages/SharedLayout';
 
 const App = () => {
   const user = true;
   return (
-    <Router>
-      <Switch>
-        <Route exact path="/">
-          <Home/>
+      <Routes>
+        <Route path='/' element={<SharedLayout/>}>
+          <Route index element={<Home/>} />
+          <Route path='products' element={<ProductsList/>} />
+          <Route path='products/:id' element={<Product/>}/>
+          <Route path='cart' element={<Cart/>}/>
+          <Route path='login' element={user ? <Navigate to="/"/> : <Login/>} />
+          <Route path='register' element={user ? <Navigate to="/"/> : <Register/>}/>
         </Route>
-        <Route path="/products">
-          <ProductsList/>
-        </Route>
-        <Route path="/products/:id">
-          <Product/>
-        </Route>
-        <Route path="/cart">
-          <Cart/>
-        </Route>
-        <Route path="/login">
-          {user ? <Redirect to="/"/> : <Login/>}
-        </Route>
-        <Route path="/register">
-          {user ? <Redirect to="/"/> : <Register/>}
-        </Route>
-      </Switch>
-
-
-  </Router>
+        
+        <Route path='*' element={<>404 Not Found</>} />
+      </Routes>
   )
 };
 
